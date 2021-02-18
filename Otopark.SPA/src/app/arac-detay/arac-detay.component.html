@@ -1,0 +1,77 @@
+<div class="text-center">
+    <h3 class="display-3">Araç Detayları</h3>
+</div>
+
+<form  class="mt-5" #aracDetayForm="ngForm" (submit)="aracDetayGuncelle(aracDetayForm)">
+    <div class="row">
+        <div class="col-md-4">            
+            <label for="tc" class="form-label" style="color: #006400; font-weight: bold;">Müşteri Tc Kimlik No</label>
+            <input type="text" name="tcKimlikNo" id="tc"  [(ngModel)]="modelArac.tcKimlikNo" value="{{modelArac.tcKimlikNo}}" class="form-control" >
+            
+            <label for="ad" class="form-label" style="color: #006400; font-weight: bold;">Müşteri Adı</label>
+            <input type="text" name="ad" id="ad" #ad="ngModel" [(ngModel)]="modelArac.ad" class="form-control" value="{{modelArac.ad}}">
+            
+            <label for="soyad" class="form-label" style="color: #006400; font-weight: bold;">Müşteri Soyadı</label>
+            <input type="text" name="soyad" id="soyad" #soyad="ngModel" [(ngModel)]="modelArac.soyad" class="form-control" value="{{modelArac.soyad}}">
+        </div>
+        <div class="col-md-4">
+            <label for="telefon" class="form-label" style="color: #006400; font-weight: bold;">Müşteri Telefon Numarası</label>
+            <input type="text"  name="telefonNo" id="telefon" #telefonNo="ngModel" [(ngModel)]="modelArac.telefonNo" class="form-control" value="{{modelArac.telefonNo}}">
+           
+            <label for="plaka" class="form-label" style="color: #006400; font-weight: bold;">Araç Plakası</label>
+            <input type="text"  name="plaka" id="plaka" #plaka="ngModel" [(ngModel)]="modelArac.plaka"  class="form-control" value="{{modelArac.plaka}}">
+            
+            <label for="marka" class="form-label" style="color: #006400; font-weight: bold;">Araç Markası</label>
+            <input type="text"  name="marka" id="marka" #marka="ngModel" [(ngModel)]="modelArac.marka" class="form-control" value="{{modelArac.marka}}">
+        </div>
+        <div class="col-md-4">
+            <label for="model" class="form-label" style="color: #006400; font-weight: bold;">Araç Modeli</label>
+            <input type="text"  name="model" id="model" #model="ngModel" [(ngModel)]="modelArac.model" class="form-control"  value="{{modelArac.model}}">
+           
+            <label for="renk" class="form-label" style="color: #006400; font-weight: bold;">Araç Modeli</label>
+            <input type="text" name="renk" id="renk" #renk="ngModel" [(ngModel)]="modelArac.renk" class="form-control" value="{{modelArac.renk}}">
+            
+            <label for="Id" class="form-label" style="color: #006400; font-weight: bold;">Araç Park Konumu Varsayılan&nbsp;:&nbsp;{{konum.yer}}<span></span></label>
+            <select id="Id" name="konumId" #konumId="ngModel" [(ngModel)]="modelArac.konumId" class="form-control">
+                <option *ngFor="let item of bosKonumlar" [value]="item.id">
+                    {{item.yer}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-lg mt-3 inline-block">Araç Güncelle</button>
+        <button type="button" (click)='aracCikisFonk(modelArac.id)' class="btn btn-danger btn-lg mt-3 ml-3 inline-block">Araç Çıkış Yap</button>
+    </div>
+</form>
+<hr>
+<div class="text-center mt-3">
+    <h4 class="display-4">Araç Faturası</h4>
+</div>
+
+<form  class="mt-5" #faturaDetayForm="ngForm" (submit)="aracFaturaGuncelle(faturaDetayForm)">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="parkSuresi" style="color: #006400; font-weight: bold;">Park Süresi</label>
+            <input *ngIf='durumDondur() == true' class="form-control" id="parkSuresi" name="parkSuresi" [(ngModel)]="modelArac.fatura.parkSuresi" value="{{modelArac.fatura.parkSuresi}}">
+            <input *ngIf='durumDondur() == false' class="form-control" id="parkSuresi" name="parkSuresi" [(ngModel)]="yeniFatura.fatura.parkSuresi">
+            <input *ngIf='durumDondur() == false' class="form-control" id="aracId" name="aracId" [(ngModel)]="yeniFatura.fatura.aracId" value="{{yeniFatura.fatura.aracId}}" hidden>
+        </div>
+        <div class="col-md-4">
+            <label for="ucret" style="color: #006400; font-weight: bold;">Ücret</label>
+            <input *ngIf='durumDondur() == true' class="form-control" id="ucret" name="ucret" [(ngModel)]="modelArac.fatura.ucret" value="{{modelArac.fatura.ucret}}">
+            <input *ngIf='durumDondur() == false' class="form-control" id="ucret" name="ucret" [(ngModel)]="yeniFatura.fatura.ucret">
+        </div>
+        <div class="col-md-4">
+            <label for="tarih" style="color: #006400; font-weight: bold;">Tarih</label>
+            <input *ngIf='durumDondur() == true' class="form-control" id="tarih" name="tarih" [(ngModel)]="modelArac.fatura.tarih" value="{{modelArac.fatura.tarih}}">
+            <input *ngIf='durumDondur() == false' class="form-control" id="tarih" name="tarih" [(ngModel)]="yeniFatura.fatura.tarih">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-lg mt-3 inline-block">Fatura Ekle/Güncelle</button>
+    </div>
+</form>
+
+
+<!--<pre>{{ getCurrentModel() }}</pre>-->

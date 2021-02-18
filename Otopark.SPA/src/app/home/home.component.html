@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group mt-3">
+            <li class="list-group-item active"><span class="h5 text-center">Kuzey Cephesi Park Alanları</span></li>
+            <li *ngFor="let item of kuzey" class="list-group-item">
+                <a *ngIf="item.durum==false" class="btn btn-success d-flex justify-content-center" aria-disabled="true">{{item.yer}}</a>
+                <button *ngIf="item.durum==true" class="w-100 btn btn-danger d-flex justify-content-center dolu" aria-disabled="true" (click)='yonlendir(item.arac.id)'>{{item.arac.plaka}}</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-group mt-3">
+            <li class="list-group-item active"><span class="h5 text-center">Güney Cephesi Park Alanları</span></li>
+            <li *ngFor="let item of guney" class="list-group-item">
+                <a *ngIf="item.durum==false" class="btn btn-success d-flex justify-content-center" aria-disabled="true">{{item.yer}}</a>
+                <button (click)='yonlendir(item.arac.id)' *ngIf="item.durum==true" class="w-100 btn btn-danger d-flex justify-content-center dolu" aria-disabled="true">{{item.arac.plaka}}</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-group mt-3">
+            <li class="list-group-item active"><span class="h5 text-center">Batı Cephesi Park Alanları</span></li>
+            <li *ngFor="let item of bati" class="list-group-item">
+                <a *ngIf="item.durum==false" class="btn btn-success d-flex justify-content-center" aria-disabled="true">{{item.yer}}</a>
+                <button (click)='yonlendir(item.arac.id)' *ngIf="item.durum==true" class="w-100 btn btn-danger d-flex justify-content-center dolu" aria-disabled="true">{{item.arac.plaka}}</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-group mt-3">
+            <li class="list-group-item active"><span class="h5 text-center">Doğu Cephesi Park Alanları</span></li>
+            <li *ngFor="let item of dogu" class="list-group-item">
+                <a *ngIf="item.durum==false" class="btn btn-success d-flex justify-content-center" aria-disabled="true">{{item.yer}}</a>
+                <button (click)='yonlendir(item.arac.id)' *ngIf="item.durum==true" class="w-100 btn btn-danger d-flex justify-content-center dolu" aria-disabled="true">{{item.arac.plaka}}</button>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="alert alert-success mt-3" role="alert">
+    <span class="h4">Boş Yer:&nbsp;{{bosYer}}</span>
+</div>
+<div class="alert alert-danger mt-3" role="alert">
+    <span class="h4">Dolu Yer:&nbsp;{{doluYer}}</span>
+</div>
+
+
+
+

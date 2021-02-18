@@ -1,0 +1,65 @@
+<div class="text-center">
+  <h3 class="display-3">
+    Araç Ekleme Sayfası
+  </h3>
+</div>
+
+<form #aracEkleForm="ngForm" class="mt-5" (submit)="aracEkle(aracEkleForm)">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="TcKimlikNo" class="form-label">Tc Kimlik Numarası</label>
+        <input type="text" class="form-control" id="TcKimlikNo" name="TcKimlikNo" [(ngModel)]="arac.tcKimlikNo">
+      </div>
+
+      <div class="mb-3">
+        <label for="Ad" class="form-label">Ad</label>
+        <input type="text" class="form-control" id="Ad" name="Ad" [(ngModel)]="arac.ad">
+      </div>
+
+      <div class="mb-3">
+        <label for="Soyad" class="form-label">Soyad</label>
+        <input type="text" class="form-control" id="Soyad" name="Soyad" [(ngModel)]="arac.soyad">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="TelefonNo" class="form-label">Telefon Numarası</label>
+        <input type="text" class="form-control" id="TelefonNo" name="TelefonNo" [(ngModel)]="arac.telefonNo" >
+      </div>
+
+      <div class="mb-3">
+        <label for="Plaka" class="form-label">Plaka</label>
+        <input type="text" class="form-control" id="Plaka" name="Plaka" [(ngModel)]="arac.plaka" >
+      </div>
+
+      <div class="mb-3">
+        <label for="Marka" class="form-label">Marka</label>
+        <input type="text" class="form-control" id="Marka" name="Marka" [(ngModel)]="arac.marka" >
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="mb-3">
+        <label for="Model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="Model" name="Model"
+        [(ngModel)]="arac.model">
+      </div>
+
+      <div class="mb-3">
+        <label for="Renk" class="form-label">Renk</label>
+        <input type="text" class="form-control" id="Renk" name="Renk"
+        [(ngModel)]="arac.renk">
+      </div>
+
+      <div class="mb-3">
+        <label for="Konum" class="form-label">Konum</label>
+        <select  name="KonumId" class="form-control" [(ngModel)]="arac.konumId">
+          <option *ngFor="let konum of konumlar" [value]="konum.id">{{konum.yer}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary w-100">Araç Girişi Yap</button>
+</form>
