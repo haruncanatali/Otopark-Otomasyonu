@@ -8,7 +8,7 @@ Merhaba bu projede Asp. Net Core Api & Angular teknolojileri kullanılarak otopa
  1. Çok Katmanlı Mimari
  2. Nesne Yönelimli Programlama
  3. Asp .Net Core Web API
- 4. Angular
+ 4. Angular (Typescript)
  5. EntityFramewok Core (Code First)
  6. Asp .Net Core Identity
  7. Fluent Validation 
