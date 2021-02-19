@@ -12,6 +12,7 @@ Merhaba bu projede Asp. Net Core Api & Angular teknolojileri kullanılarak otopa
  5. EntityFramewok Core (Code First)
  6. Asp .Net Core Identity
  7. Fluent Validation 
+ 8. Triggers
 
 ## Projeden Görüntüler
 
